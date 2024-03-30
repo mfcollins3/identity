@@ -1,0 +1,47 @@
+{
+  "name": "@mfcollins3/identity",
+  "type": "module",
+  "version": "0.1.0",
+  "description": "Microservices that implement an identity solution for applications",
+  "keywords": [
+    "authentication",
+    "authorization",
+    "azure",
+    "dapr",
+    "jwt",
+    "mfcollins3",
+    "oauth",
+    "oidc",
+    "openid",
+    "passkey",
+    "webauthn"
+  ],
+  "homepage": "https://mfcollins3.github.io/identity",
+  "bugs": {
+    "email": "mfcollins3@me.com",
+    "url": "https://github.com/mfcollins3/identity/issues"
+  },
+  "license": "MIT",
+  "contributors": [
+    {
+      "name": "Michael Collins",
+      "email": "mfcollins3@me.com",
+      "url": "https://www.michaelcollins.blog"
+    }
+  ],
+  "repository": "github:mfcollins3/identity",
+  "scripts": {
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.2.1",
+    "@commitlint/config-conventional": "^19.1.0",
+    "husky": "^9.0.11"
+  },
+  "engines": {
+    "node": "20.11.1"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
+}
