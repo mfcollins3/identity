@@ -25,7 +25,6 @@ export default {
         'body-case': [2, 'always', 'sentence-case'],
         'header-max-length': [2, 'always', 52],
         'scope-enum': [2, 'always', []],
-        'subject-case': [2, 'always', 'lower-case'],
         'type-enum': [2, 'always', [
             'build',
             'change',
