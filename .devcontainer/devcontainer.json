@@ -1,0 +1,10 @@
+{
+    "name": "identity",
+    "image": "mcr.microsoft.com/devcontainers/base:1.0.9-bookworm",
+    "features": {
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "20.11.1"
+        }
+    },
+    "postCreateCommand": ". ${NVM_DIR}/nvm.sh && ./install.sh"
+}
