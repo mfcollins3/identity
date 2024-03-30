@@ -19,5 +19,29 @@
 // IN THE SOFTWARE.
 
 export default { 
-    extends: ['@commitlint/config-conventional'] 
+    extends: ['@commitlint/config-conventional'],
+    rules: {
+        'body-max-line-length': [1, 'always', 72],
+        'body-case': [2, 'always', 'sentence-case'],
+        'header-max-length': [2, 'always', 52],
+        'scope-enum': [2, 'always', []],
+        'subject-case': [2, 'always', 'lower-case'],
+        'type-enum': [2, 'always', [
+            'build',
+            'change',
+            'chore',
+            'ci',
+            'deprecate',
+            'docs',
+            'feat',
+            'fix',
+            'perf',
+            'refactor',
+            'remove',
+            'revert',
+            'security',
+            'style',
+            'test'
+        ]]
+    }
 };
