@@ -1,0 +1,24 @@
+[package]
+name = "users"
+version = "0.1.0"
+authors = ["Michael Collins <michael.collins@naked.software>"]
+edition = "2021"
+rust-version = "1.77.1"
+description = "Service that manages local user accounts and authenticates local users"
+documentation = "https://mfcollins3.github.io/identity"
+readme = "README.md"
+homepage = "https://mfcollins3.github.io/identity"
+repository = "https://github.com/mfcollins3/identity"
+license = "MIT"
+keywords = ["identity", "authentication", "oauth2", "openid"]
+categories = ["authentication"]
+build = "build.rs"
+publish = false
+
+[dependencies]
+prost = "0.12.3"
+tokio = { version = "1.37.0", features = ["macros", "rt-multi-thread"] }
+tonic = "0.11.0"
+
+[build-dependencies]
+tonic-build = "0.11.0"
