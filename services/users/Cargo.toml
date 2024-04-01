@@ -16,6 +16,8 @@ build = "build.rs"
 publish = false
 
 [dependencies]
+clap = { version = "4.5.4", features = ["derive", "env"] }
+exitcode = "1.1.2"
 prost = "0.12.3"
 tokio = { version = "1.37.0", features = ["macros", "rt-multi-thread"] }
 tonic = "0.11.0"

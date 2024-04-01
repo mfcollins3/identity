@@ -18,21 +18,28 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 // IN THE SOFTWARE.
 
+use crate::authentication_service::AuthenticationService;
 use clap::Parser;
-use users_service::UsersService;
+use tonic::transport::Server;
+use crate::users::authentication_service_server::AuthenticationServiceServer;
 
-pub mod authentication_service;
-pub mod users;
-pub mod users_service;
+#[derive(Parser, Debug)]
+#[command(version, about, long_about = None)]
+pub struct UsersService {
+    #[arg(short, long, env = "APP_PORT", default_value = "40000", help = "the TCP/IP port to listen for incoming requests on")]
+    port: u16,
+}
 
-#[tokio::main]
-async fn main() {
-    let users_service = UsersService::parse();
-    match users_service.run().await {
-        Ok(_) => std::process::exit(exitcode::OK),
-        Err(e) => {
-            eprintln!("Error: {}", e);
-            std::process::exit(exitcode::SOFTWARE)
-        }
+impl UsersService {
+    pub async fn run(&self) -> Result<(), Box<dyn std::error::Error>> {
+        println!("Listening on port {}", self.port);
+        let addr = format!("127.0.0.1:{}", self.port).parse().unwrap();
+        let authentication_service = AuthenticationService::default();
+        Server::builder()
+            .add_service(AuthenticationServiceServer::new(authentication_service))
+            .serve(addr)
+            .await?;
+    
+        Ok(())
     }
 }
